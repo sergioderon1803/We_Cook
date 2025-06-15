@@ -1,0 +1,317 @@
+:root {
+    --main-color: #ff5e62;
+    --main-gradient: linear-gradient(135deg, #ff934b, #ff5e62);
+    --text-dark: #2d3748;
+    --text-muted: #718096;
+    --border-color: #e2e8f0;
+    --transition: all 0.3s ease-in-out;
+}
+
+.fondoRegistro {
+    font-family: 'Poppins', sans-serif;
+    background: url('../images/landing_bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: var(--text-dark);
+    transition: var(--transition);
+    position: relative;
+    z-index: 0;
+}
+
+.fondoRegistro::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.6); /* efecto blanco translúcido */
+    z-index: -1;
+    pointer-events: none;
+}
+
+.auth-container {
+    max-width: 1000px;
+}
+
+.left-panel {
+    background: var(--main-gradient);
+    position: relative;
+    overflow: hidden;
+}
+
+.left-panel::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.1;
+}
+
+.auth-form-container {
+    min-height: 460px;
+    position: relative;
+    overflow: hidden;
+}
+
+.welcome-title {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.form-toggle-btn {
+    color: var(--text-muted);
+    font-weight: 600;
+    border: none;
+    padding: 0.5rem 1rem;
+    position: relative;
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+.form-toggle-btn::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: var(--main-color);
+    transition: var(--transition);
+    transform: translateX(-50%);
+}
+
+.form-toggle-btn:hover,
+.form-toggle-btn.active {
+    color: var(--main-color);
+}
+
+.form-toggle-btn.active::after {
+    width: 100%;
+}
+
+.form-control {
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0.75rem;
+    transition: var(--transition);
+}
+
+.form-control:focus {
+    border-color: var(--main-color);
+    box-shadow: 0 0 0 2px rgba(255, 94, 98, 0.1);
+}
+
+.form-label {
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.btn-primary {
+    background: var(--main-gradient);
+    border: none;
+    padding: 0.75rem;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(255, 94, 98, 0.2);
+}
+
+.form-section {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(100%);
+    transition: var(--transition);
+}
+
+.form-section.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+.form-section.hide-left {
+    transform: translateX(-100%);
+}
+
+.bloqueTexto{
+    padding: 50px;
+    width: 440px;
+    font-size: x-large;
+    object-fit: cover;
+}
+
+.margenesLibroTexto{
+    margin: 20px 100px 20px 150px;
+}
+
+.precio {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.btn-toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+    color: var(--text-muted);
+    padding: 0;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-toggle-password:hover {
+    color: var(--main-color);
+}
+
+.fondoAbout{
+    font-family: 'Poppins', sans-serif;
+    background: url('../images/fondoCocina.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: var(--text-dark);
+    transition: var(--transition);
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    z-index: 0;
+}
+
+/* Noticias */
+/*Aquí se ajusta el tamaño de la imagen*/
+.tamaño{
+    width: 400px;
+    border-radius: 2%;
+}
+
+.titulo{
+    font-size: 20px;
+}
+
+.contenido{
+    font-size: 16px;
+}
+
+.sabermas{
+    width: 130px !important;
+    height: 40px;
+    background-color: #2A9D8F;
+}
+/*Enlace para que no salga con el subrayado*/
+.enlace{
+    color: white;
+    text-decoration: none;
+}
+.product-card button {
+    transition: transform 0.3s ease-in-out; /* Animación suave */
+}
+.product-card button:hover {
+    transform: scale(1.1); /* La imagen se agranda un 10% */
+}
+
+/*==============================
+=        BOTONES LANDING       =
+==============================*/
+.botonUp{
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    z-index: 10;
+    width: 60px;
+    height: 60px;
+    background: #2A9D8F;
+    color: white;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    border: none;
+}
+.botonUp:hover{
+    background: #238276;
+    color: white;
+}
+
+.botonDown{
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    z-index: 10;
+    width: 60px;
+    height: 60px;
+    background: #F07B3F;
+    color: white;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    border: none;
+}
+.botonDown:hover{
+    background: #CF5E13;
+    color: white;
+}
+
+
+/* Responsive */
+@media (max-width: 767px) {
+    .row.flex-column.flex-md-row {
+        flex-direction: column !important;
+    }
+
+    .left-panel {
+        order: -1 !important; /* Logo arriba en móvil */
+        min-height: 200px;
+        padding: 1.5rem;
+    }
+
+    .left-panel img {
+        max-height: 280px;
+    }
+
+    .col-md-6.p-5 {
+        padding: 2rem 1rem !important;
+    }
+
+    .form-toggle-btn {
+        font-size: 1rem;
+    }
+
+    .welcome-title {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    /* Noticias */
+    .tamaño{
+        width: 300px;
+    }
+
+    .titulo{
+        font-size: 16px;
+    }
+
+    .contenido{
+        font-size: 12px;
+    }
+}
+
+/*Versión móvil*/
+@media (max-width: 480px) {
+    /* Noticias */
+    .tamaño{
+        width: 210px;
+        margin: 0px 0px 8px 0px;
+    }
+
+    .titulo{
+        font-size: 14px;
+    }
+
+    .contenido{
+        font-size: 9px;
+    }
+}

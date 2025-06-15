@@ -1,0 +1,52 @@
+body {
+    overflow-x: hidden;
+}
+.letraSeguir{
+    font-size: x-large;
+}
+.tamañoSecciones{
+    padding: 3px 0px;
+    border: 1px solid #000000;
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    cursor: pointer;
+}
+.posicionBoton{
+  top: 234px;
+  right: -6px;
+}
+.seleccionado{
+  color:#F07B3F;
+}
+
+.btn-seguir{
+  background-color: rgba(244, 162, 97, 0.5);
+  border: 2px solid #F07B3F;
+  border-radius: 999px !important;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.btn-seguir:hover {
+  background-color: #F4A261;
+  border: 2px solid #d06b1a; 
+}
+
+.btn-siguiendo{
+  background-color: #F07B3F;
+  border: 2px solid #C75A3A;
+  border-radius: 999px !important;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.btn-siguiendo:hover {
+  background-color: #c75a3a;
+  border: 2px solid #a9442a;
+}
+
+/* Pantallas muy pequeñas (móviles, <576px) */
+@media (max-width: 424px) {
+  .tamañoSecciones {
+    padding: 5px 66px;
+  }
+}
