@@ -12,7 +12,7 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-    <!-- Bootstrap y estilos -->
+    <!-- Bootstrap y estilos estáticos -->
     <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
@@ -30,8 +30,8 @@
 
     <script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
-    <!-- Vite -->
-    @vite(['public/css/app.css', 'resources/js/app.js'])
+    <!-- Solo JS procesado con Vite -->
+    @vite(['resources/js/app.js'])
 </head>
 <body class="font-sans antialiased">
     <div class="d-flex min-vh-100 flex-column flex-lg-row position-relative"> <!-- Añadido position-relative -->
