@@ -52,11 +52,11 @@
     {{-- Seguidores / Seguidos (alineado a la derecha) --}}
     <div class="d-flex gap-4 text-center mt-3">
         <div class="d-flex flex-column">
-            <strong id="contSeguidores" class="text-dark">{{ $perfil->user->seguidores->count() }}</strong>
+            <strong id="contSeguidores" class="text-dark"></strong>
             <p id="btnSeguidores" class="text-decoration-none text-muted" style="cursor: pointer;" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Seguidores</p>
         </div>
         <div class="d-flex flex-column">
-            <strong class="text-dark">{{ $perfil->user->seguidos->count() }}</strong>
+            <strong id="contSeguidos" class="text-dark"></strong>
             <p id="btnSeguidos" class="text-decoration-none text-muted" style="cursor: pointer;" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Seguidos</p>
         </div>
     </div>
@@ -64,20 +64,24 @@
 
 
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-  <div class="offcanvas-body">
-    <div class="d-flex-inline">
-        <h5 class="fw-bold mb-3">
-            <div class="d-flex w-100 justify-content-evenly">
-                <span id="seguidores" style="cursor: pointer;text-decoration: underline;">Seguidores</span>
-                <span id="seguidos" style="cursor: pointer;text-decoration: underline;">Seguidos</span>
-            </div>
-        </h5>
-        <hr>
+    <div class="offcanvas-header">
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasRight" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div class="d-flex-inline">
+            <hr>
+            <h5 class="fw-bold mb-3">
+                <div class="d-flex w-100 justify-content-evenly">
+                    <span id="seguidores" style="cursor: pointer;text-decoration: underline;">Seguidores</span>
+                    <span id="seguidos" style="cursor: pointer;text-decoration: underline;">Seguidos</span>
+                </div>
+            </h5>
+            <hr>
 
-        <div id="listadoUsuarios" class="container py-4">
+            <div id="listadoUsuarios" class="container py-4">
+            </div>
         </div>
     </div>
-  </div>
 </div>
 
 <hr class="mt-4">
@@ -240,6 +244,8 @@
                 var arreglo = JSON.parse(res);
 
                 seguidosArray = arreglo;
+
+                $('#contSeguidos').text(seguidosArray.length.toString());
             })
 
             $.ajax({
@@ -252,6 +258,8 @@
                 var arreglo = JSON.parse(res);
 
                 seguidoresArray = arreglo;
+
+                $('#contSeguidores').text(seguidoresArray.length.toString());
             })
 
             $.ajax({
@@ -266,7 +274,7 @@
 
                 recetasMeGusta = arreglo;
             })
-    });
+        });
 
 
         function listarSeguidores(){
@@ -295,7 +303,7 @@
                                 style="width: 50px; height: 50px; object-fit: cover;" 
                                 alt="Imagen de perfil de X" onerror="this.onerror=null;this.src='` + defaultImgPerfil + `';">
                             {{-- Nombre --}}
-                            <div>
+                            <div style="max-width: 220px; word-break: break-word; overflow-wrap: break-word;">
                                 <h6 class="mb-0 fw-bold text-dark">`+ seguidoresArray[x].perfil.name +`</h6>
                                 <p>`+ seguidoresArray[x].perfil.biografia.substring(0, 40) +`</p>
                             </div>
@@ -335,7 +343,7 @@
                                 style="width: 50px; height: 50px; object-fit: cover;" 
                                 alt="Imagen de perfil de ` + seguidosArray[x].perfil.id_user +`" onerror="this.onerror=null;this.src='` + defaultImgPerfil + `';">
                             {{-- Nombre --}}
-                            <div>
+                            <div style="max-width: 220px; word-break: break-word; overflow-wrap: break-word;">
                                 <h6 class="mb-0 fw-bold text-dark">`+ seguidosArray[x].perfil.name +`</h6>
                                 <p>`+ seguidosArray[x].perfil.biografia.substring(0, 40) +`</p>
                             </div>
@@ -585,7 +593,7 @@
     <script>
         document.getElementById('img_perfil').addEventListener('change', function(event) {
             const file = event.target.files[0];
-            const preview = document.getElementById('preview');
+            const preview = document.getElementById('previewImgPerfil');
 
             if (file) {
             preview.src = URL.createObjectURL(file);
